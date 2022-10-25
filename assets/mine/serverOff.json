@@ -1,0 +1,17 @@
+{
+    "title": "Server is offline",
+    "description": "Server is offline. To turn it on again please call `@Operator`s.",
+    "color": 16711680,
+    "author": {
+      "name": "1.12.2 Forge: Galacticraft",
+      "icon_url": "https://imgur.com/NM4MbhW.png"
+    },
+    "footer": {
+      "text": "Ec32.aternos.me:47219",
+      "icon_url": "https://cdn.discordapp.com/attachments/1034413190597054534/1034414331800072202/img_off.png"
+    },
+    "timestamp": "2022-10-25T10:37:00.000Z",
+    "thumbnail": {
+      "url": "https://assets.webinfcdn.net/favicons/b/blog.aternos.org.ico"
+    }
+  }
