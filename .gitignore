@@ -1,2 +1,5 @@
-
+node_modules
 Token.txt
+config.json
+.env
+.eslintrc.json
