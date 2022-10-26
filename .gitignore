@@ -3,3 +3,5 @@ Token.txt
 config.json
 .env
 .eslintrc.json
+servercheck
+test.js
