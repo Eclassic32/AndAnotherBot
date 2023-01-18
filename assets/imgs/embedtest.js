@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, roleMention } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -39,12 +39,12 @@ module.exports = {
 		    return interaction.reply({ embeds: [embedOn] });
 
         } else if (interaction.options.getSubcommand() == 'off') {
-
+            const operatorMention = roleMention(1001718925865799730);
             const embedOff = new EmbedBuilder()
             .setColor(16711680)
             .setTitle('Server is offline')
             .setAuthor({ name: '1.12.2 Forge: Galacticraft', iconURL: 'https://imgur.com/NM4MbhW.png' })
-            .setDescription('Server is offline. To turn it on again please call \`@Operator\`s.')
+            .setDescription(`Server is offline. To turn it on again please call ${operatorMention}s.`)
             .setThumbnail('https://assets.webinfcdn.net/favicons/b/blog.aternos.org.ico')
             .setTimestamp()
             .setFooter({ text: 'Ec32.aternos.me:47219', iconURL: 'https://cdn.discordapp.com/attachments/1034413190597054534/1034414331800072202/img_off.png' });

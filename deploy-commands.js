@@ -3,24 +3,24 @@ const { clientId, guildId, token } = require('./config.json');
 const fs = require('node:fs');
 
 const commands = [];
-// Grab all the command files from the commands directory you created earlier
-const commandFiles = fs.readdirSync('./testcommands').filter(file => file.endsWith('.js'));
+// Берет все файлы из папки commands 
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-// Grab the SlashCommandBuilder#toJSON() output of each command's data for deployment
+// Делает команду из каждого файла 
 for (const file of commandFiles) {
-	const command = require(`./testcommands/${file}`);
+	const command = require(`./commands/${file}`);
 	commands.push(command.data.toJSON());
 }
 
-// Construct and prepare an instance of the REST module
+// Подготовка бота к подставке новых комманд
 const rest = new REST({ version: '10' }).setToken(token);
 
-// and deploy your commands!
+// Функция подставки команд
 (async () => {
 	try {
 		console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
-		// The put method is used to fully refresh all commands in the guild with the current set
+		// Подставляет комманды для определенного сервера
 		const data = await rest.put(
 			Routes.applicationGuildCommands(clientId, guildId),
 			{ body: commands },
@@ -28,7 +28,7 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
 	} catch (error) {
-		// And of course, make sure you catch and log any errors!
+		// При наличии вывести все ошибки
 		console.error(error);
 	}
 })();
