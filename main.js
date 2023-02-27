@@ -33,5 +33,7 @@ for (const file of eventFiles) {
 	}
 }
 
+console.log(client);
+
 // Подключение бота к серверам в Discord-e
 client.login(token);

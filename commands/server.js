@@ -12,6 +12,7 @@ module.exports = {
 				.setLabel('Click me!')
 				.setStyle(ButtonStyle.Primary),
 		);
+		console.log(interaction);
 
 		await interaction.reply({ content: 'I think you should,', components: [row] });
 	},

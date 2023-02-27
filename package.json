@@ -4,7 +4,9 @@
   "description": "Collage Project Discord Bot",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js",
+    "deploy": "node g-deploy-commands.js",
+    "webhook": "node -e \"require('./commands/otherjs/webhook.js').send()\""
   },
   "repository": {
     "type": "git",
