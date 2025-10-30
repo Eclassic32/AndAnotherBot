@@ -3,6 +3,7 @@ require('dotenv').config(); // Загрузка переменных окруж�
 const fs = require('node:fs'); // Управление файловой системой
 const path = require('node:path'); // Модуль для определения путей к папкам/файлам
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js'); // Млдуль для подключения API Discord-a
+const http = require('http'); // Добавляем HTTP модуль
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -37,3 +38,14 @@ console.log(client);
 
 // Подключение бота к серверам в Discord-e
 client.login(process.env.TOKEN);
+
+// Простой HTTP сервер для Cloud Run
+const PORT = process.env.PORT || 8080;
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot is running!');
+});
+
+server.listen(PORT, () => {
+  console.log(`Health check server running on port ${PORT}`);
+});
