@@ -1,8 +1,8 @@
 // Подключение нужных модулей
+require('dotenv').config(); // Загрузка переменных окружения из .env файла
 const fs = require('node:fs'); // Управление файловой системой
 const path = require('node:path'); // Модуль для определения путей к папкам/файлам
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js'); // Млдуль для подключения API Discord-a
-const { token } = require('./config.json'); // JSON файл с настройками
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -36,4 +36,4 @@ for (const file of eventFiles) {
 console.log(client);
 
 // Подключение бота к серверам в Discord-e
-client.login(token);
+client.login(process.env.TOKEN);
