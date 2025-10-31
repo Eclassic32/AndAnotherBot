@@ -6,3 +6,6 @@ config.json
 servercheck
 test.js
 AndAnotherBot.code-workspace
+/assets/servers/*
+!/assets/servers/
+!/assets/servers/Aternos.png
