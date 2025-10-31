@@ -1,0 +1,26 @@
+{
+    "name": "AndAnotherBot-DiscordBot",
+    "description": "AndAnotherBot",
+    "repository": "https://github.com/eclassic32/AndAnotherBot",
+    "env": {
+        "TOKEN": {
+            "description": "Discord Bot Token",
+            "required": true
+        },
+        "OAUTH2_TOKEN": {
+            "description": "OAuth2 Token"
+        },
+        "CLIENT_ID": {
+            "description": "Client ID",
+            "required": true
+        },
+        "GUILD_ID": {
+            "description": "Guild ID"
+        }
+    },
+    "buildpacks": [{
+        "url": "heroku/nodejs"
+    }],
+    "stack": "heroku-24"
+
+}
