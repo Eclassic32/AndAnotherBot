@@ -18,6 +18,18 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 
+// Сбор всех JS файлов в папке кнопок
+client.buttons = new Collection();
+const buttonsPath = path.join(__dirname, 'buttons');
+const buttonFiles = fs.readdirSync(buttonsPath).filter(file => file.endsWith('.js'));
+
+// Подключение кнопок к боту
+for (const file of buttonFiles) {
+	const filePath = path.join(buttonsPath, file);
+	const button = require(filePath);
+	client.buttons.set(button.data.parent, button);
+}
+
 // Сбор всех JS файлов в папке событии
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
